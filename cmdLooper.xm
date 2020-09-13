@@ -6,7 +6,7 @@
 - (void)executeCmd;
 @end
 
-BOOL timerAdded = NO;
+BOOL wasTheTimerAdded = NO;
 NSDictionary *cmdlPrefsDict;
 
 %hook SBIconController
@@ -22,8 +22,8 @@ NSDictionary *cmdlPrefsDict;
     NSLog(@"cmdLooper: shouldEnablecmdLooper: %@", shouldEnablecmdLooper);
 
     if (shouldEnablecmdLooper) {
-        if (!timerAdded) {
-            timerAdded = YES;
+        if (!wasTheTimerAdded) {
+            wasTheTimerAdded = YES;
             NSLog(@"cmdLooper: timer started");
             [NSTimer scheduledTimerWithTimeInterval:putIntoNSTimer target:self selector:@selector(executeCmd) userInfo:nil repeats:YES];
         }
