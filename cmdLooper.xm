@@ -18,8 +18,8 @@ NSDictionary *cmdlPrefsDict;
     BOOL shouldEnablecmdLooper = [[cmdlPrefsDict objectForKey:@"enableTweak"] boolValue];
     NSNumber *timerDelay = [cmdlPrefsDict objectForKey:@"timerDelay"];
     double putIntoNSTimer = [timerDelay doubleValue];
-    NSLog(@"cmdLooper: putIntoNSTimer: %@", putIntoNSTimer);
-    NSLog(@"cmdLooper: shouldEnablecmdLooper: %@", shouldEnablecmdLooper);
+    NSLog(@"cmdLooper: putIntoNSTimer: %f", putIntoNSTimer);
+    NSLog(@"cmdLooper: shouldEnablecmdLooper: %hhd", shouldEnablecmdLooper);
 
     if (shouldEnablecmdLooper) {
         if (!wasTheTimerAdded) {
