@@ -7,19 +7,19 @@
 @end
 
 BOOL timerAdded = NO;
-NSDictionary *rootDict;
+NSDictionary *cmdlPrefsDict;
 
 %hook SBIconController
 - (void)viewDidLoad {
     %orig;
 
     NSLog(@"cmdLooper: helo_world!");
-    rootDict = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/dev.quiprr.cmdlooper.plist"];
-    BOOL shouldEnablecmdLooper = [[rootDict objectForKey:@"enableTweak"] boolValue];
-    NSNumber *timerDelay = [rootDict objectForKey:@"timerDelay"];
+    cmdlPrefsDict = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/dev.quiprr.cmdlooper.plist"];
+    BOOL shouldEnablecmdLooper = [[cmdlPrefsDict objectForKey:@"enableTweak"] boolValue];
+    NSNumber *timerDelay = [cmdlPrefsDict objectForKey:@"timerDelay"];
     double putIntoNSTimer = [timerDelay doubleValue];
-    NSLog(@"cmdlooper: putIntoNSTimer: %@", putIntoNSTimer);
-    NSLog(@"cmdlooper: shouldEnablecmdLooper: %@", shouldEnablecmdLooper);
+    NSLog(@"cmdLooper: putIntoNSTimer: %@", putIntoNSTimer);
+    NSLog(@"cmdLooper: shouldEnablecmdLooper: %@", shouldEnablecmdLooper);
 
     if (shouldEnablecmdLooper) {
         if (!timerAdded) {
@@ -35,7 +35,7 @@ NSDictionary *rootDict;
 - (void)executeCmd {
 
     NSLog(@"cmdLooper: executeCmd called!!!!");
-    NSString *command = [rootDict objectForKey:@"command"];
+    NSString *command = [cmdlPrefsDict objectForKey:@"command"];
     NSLog (@"cmdlooper: command: %@", command);
     NSTask *runCommand = [[NSTask alloc] init];
     runCommand.launchPath = command;

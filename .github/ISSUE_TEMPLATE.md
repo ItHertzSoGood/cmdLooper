@@ -1,5 +1,5 @@
 ---
-name: NotiPing Bug Report
+name: cmdLooper Bug Report
 about: For bug reports, crashes, errors, unsupported versions, etc.
 title: ''
 labels: ''
