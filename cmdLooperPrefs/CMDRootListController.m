@@ -13,7 +13,7 @@
 }
 
 - (id)readPreferenceValue:(PSSpecifier *)specifier {
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/dev.quiprr.cmdlooper.plist"];
+    NSMutableDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/dev.quiprr.cmdlooper.plist"];
     id object = [dict objectForKey:[specifier propertyForKey:@"key"]];
     if (!object) {
         object = [specifier propertyForKey:@"default"];
