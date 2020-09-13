@@ -1,0 +1,9 @@
+Package: dev.quiprr.cmdlooper
+Name: cmdLooper
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: A tweak to loop any shell command at whatever pace you desire.
+Maintainer: quiprr
+Author: quiprr
+Section: Tweaks
+Depends: mobilesubstrate, preferenceloader
