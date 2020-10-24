@@ -1,5 +1,7 @@
 #import <Preferences/PSListController.h>
 #import <Preferences/PSSpecifier.h>
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface CMDDevPageController : PSListController
 - (NSMutableArray *)specifiers;

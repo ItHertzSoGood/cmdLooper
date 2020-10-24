@@ -1,7 +1,4 @@
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "CMDDevPageController.h"
-#import "spawn.h"
 
 @implementation CMDDevPageController
 
@@ -32,7 +29,7 @@
 
 - (void)openGitHub
 {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/ItHertzSoGood/cmdLooper"] options:@{} completionHandler:nil];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/quiprr/cmdLooper"] options:@{} completionHandler:nil];
 }
 
 - (void)openTwitter
@@ -57,7 +54,7 @@
 
 - (void)openDiscord
 {
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://discord.gg/s4ugHCM"] options:@{} completionHandler:nil];
+	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://discord.gg/Wy4K2gQ"] options:@{} completionHandler:nil];
 }
 
 - (void)specialThanks

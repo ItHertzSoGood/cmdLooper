@@ -1,4 +1,6 @@
 .vscode
 .DS_Store
-.dragon/
-packages/
+.dragon
+packages
+.theos
+*.ninja

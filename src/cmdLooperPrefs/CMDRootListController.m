@@ -1,19 +1,18 @@
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "CMDRootListController.h"
-#import "NSTask.h"
 
 @implementation CMDRootListController
 
-- (NSMutableArray *)specifiers {
+- (NSMutableArray *)specifiers
+{
     if (!_specifiers) {
         _specifiers = [self loadSpecifiersFromPlistName:@"Root" target:self];
     }
     return _specifiers;
 }
 
-- (id)readPreferenceValue:(PSSpecifier *)specifier {
-    NSMutableDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/dev.quiprr.cmdlooper.plist"];
+- (id)readPreferenceValue:(PSSpecifier *)specifier
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/dev.quiprr.cmdlooper.plist"];
     id object = [dict objectForKey:[specifier propertyForKey:@"key"]];
     if (!object) {
         object = [specifier propertyForKey:@"default"];
@@ -21,8 +20,9 @@
     return object;
 }
 
-- (void)setPreferenceValue:(id)value specifier:(PSSpecifier *)specifier {
-    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/dev.quiprr.cmdLooper.plist"];
+- (void)setPreferenceValue:(id)value specifier:(PSSpecifier *)specifier
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithContentsOfFile:@"/var/mobile/Library/Preferences/dev.quiprr.cmdlooper.plist"];
     if (!dict) {
         dict = [[NSMutableDictionary alloc] init];
     }
@@ -33,7 +33,7 @@
 -(void)sbreload
 {
 	UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"cmdLooper"
-							message:@"Your settings have been applied.\n Would you like to respring to activate now?"
+							message:@"Your settings have been applied.\n Would you like to respring now?"
 							preferredStyle:UIAlertControllerStyleActionSheet];
 
 		UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel
